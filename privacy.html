@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Urlyth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --card: #18181b;
+            --purple: #7209b7;
+            --text: #fafafa;
+            --muted: #a1a1aa;
+            --border: #27272a;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; padding: 4rem 10%; margin: 0; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #fff; font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.05em; }
+        h2 { color: var(--purple); font-size: 1.25rem; margin-top: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        p, li { color: var(--muted); margin-bottom: 1rem; font-size: 1rem; }
+        .back-link { color: var(--purple); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 2rem; transition: 0.2s; }
+        .back-link:hover { opacity: 0.8; }
+        .last-update { color: var(--purple); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Urlyth</a>
+        <div class="last-update">Last Updated: February 2026</div>
+        <h1>Privacy Policy</h1>
+        
+        <p>Your privacy is fundamental to the design of Urlyth. This policy explains how we handle your data.</p>
+
+        <h2>1. Local-First Data Storage</h2>
+        <p>Urlyth is built as a <strong>serverless</strong> application. All notes, voice recordings, and visual snapshots are stored locally on your device using the <code>chrome.storage.local</code> API. We do not maintain central servers to store your web content.</p>
+
+        <h2>2. Information Collection</h2>
+        <p>We do not collect, transmit, or sell any of the information you create within the extension. Your data never leaves your browser unless you explicitly use the "Export" feature to create a manual backup on your own hardware.</p>
+
+        <h2>3. Permissions Explained</h2>
+        <ul>
+            <li><strong>Tabs/Storage:</strong> Required to "anchor" your notes to specific URLs so they appear when you return to a page.</li>
+            <li><strong>Microphone:</strong> Required only for the Voice Memo feature. Audio is processed and saved locally; it is never sent to a cloud transcription service.</li>
+            <li><strong>ExtensionPay:</strong> We use a third-party provider (Stripe/ExtensionPay) to manage Lifetime Edition licenses. They collect payment info securely; we never see your credit card details.</li>
+        </ul>
+
+        <h2>4. Data Retention</h2>
+        <p>You have full control. If you delete a note or use the "Nuclear Delete" feature, the data is removed immediately from your device. Uninstalling the extension will also clear all locally stored notes.</p>
+
+        <p>© 2026 Weblaro.com. All rights reserved.</p>
+    </div>
+</body>
+</html>
