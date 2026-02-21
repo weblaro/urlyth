@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urlyth | Contextual Web Memory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --urlyth-bg: #09090b;
+            --urlyth-card: #18181b;
+            --urlyth-border: #27272a;
+            --urlyth-purple: #7209b7;
+            --urlyth-text: #fafafa;
+            --urlyth-muted: #a1a1aa;
+            --urlyth-gradient: linear-gradient(135deg, #7209b7, #3b82f6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--urlyth-bg); color: var(--urlyth-text); line-height: 1.6; letter-spacing: -0.01em; }
+
+        .urlyth-navbar {
+            display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 10%;
+            border-bottom: 1px solid var(--urlyth-border); position: sticky; top: 0;
+            background: rgba(9, 9, 11, 0.9); backdrop-filter: blur(10px); z-index: 1000;
+        }
+
+        .urlyth-logo { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .urlyth-nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--urlyth-muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+        .urlyth-nav-links a:hover { color: var(--urlyth-purple); }
+
+        .urlyth-hero { padding: 8rem 10%; display: flex; align-items: center; gap: 4rem; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 800; }
+        .hero-content p { font-size: 1.1rem; color: var(--urlyth-muted); margin-bottom: 2rem; max-width: 550px; }
+
+        .urlyth-cta { display: inline-block; background: var(--urlyth-purple); color: white; padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 700; transition: 0.2s; border: none; cursor: pointer; }
+        .urlyth-cta:hover { background: #5a078f; transform: translateY(-2px); }
+
+        .urlyth-features { padding: 6rem 10%; border-top: 1px solid var(--urlyth-border); }
+        .urlyth-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
+        .urlyth-card { background: var(--urlyth-card); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--urlyth-border); transition: border-color 0.3s; }
+        .urlyth-card:hover { border-color: var(--urlyth-purple); }
+        .urlyth-card i { font-size: 1.8rem; color: var(--urlyth-purple); margin-bottom: 1.5rem; }
+        .urlyth-card h3 { margin-bottom: 1rem; font-weight: 700; }
+        .urlyth-card p { color: var(--urlyth-muted); font-size: 0.95rem; }
+
+        .urlyth-pricing { padding: 6rem 10%; border-top: 1px solid var(--urlyth-border); background: #0d0d0f; }
+        .pricing-grid { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+        .price-card { background: var(--urlyth-card); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--urlyth-border); width: 350px; position: relative; }
+        .price-card.pro { border: 2px solid var(--urlyth-purple); }
+        .pro-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--urlyth-gradient); padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; }
+        .price-val { font-size: 2.5rem; font-weight: 800; margin: 1rem 0; }
+        .price-features { list-style: none; margin: 2rem 0; color: var(--urlyth-muted); font-size: 0.9rem; }
+        .price-features li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+        .price-features i { color: var(--urlyth-purple); }
+
+        .help-section { padding: 6rem 10%; }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 3rem auto; }
+        .faq-item { background: var(--urlyth-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--urlyth-border); }
+        .faq-item h4 { margin-bottom: 0.5rem; font-size: 1rem; color: #fff; }
+        .faq-item p { font-size: 0.85rem; color: var(--urlyth-muted); }
+
+        .footer { padding: 5rem 10% 2rem; border-top: 1px solid var(--urlyth-border); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h5 { margin-bottom: 1.2rem; font-size: 0.9rem; text-transform: uppercase; color: var(--urlyth-purple); }
+        .footer-col a { display: block; color: var(--urlyth-muted); text-decoration: none; margin-bottom: 0.6rem; font-size: 0.85rem; cursor: pointer; }
+        .footer-col a:hover { color: #fff; }
+        .copyright { text-align: center; font-size: 0.8rem; color: #52525b; border-top: 1px solid var(--urlyth-border); padding-top: 2rem; }
+
+        @media (max-width: 800px) { .urlyth-hero { flex-direction: column; text-align: center; } .faq-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="urlyth-navbar">
+        <a href="#" class="urlyth-logo">URLYTH</a>
+        <div class="urlyth-nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#help">Help</a>
+            <a href="https://chromewebstore.google.com/detail/urlyth/hohhodojpmnjolihlhklkeleiaelajne" class="urlyth-cta" style="padding: 0.5rem 1rem;">Download</a>
+        </div>
+    </nav>
+
+    <header class="urlyth-hero">
+        <div class="hero-content">
+            <h1>Stay Lithe. <br>Remember URLs.</h1>
+            <p>A context-aware sidebar for pinning notes, voice memos, and snapshots directly to the web pages you visit.</p>
+            <a href="https://chromewebstore.google.com/detail/urlyth/hohhodojpmnjolihlhklkeleiaelajne" class="urlyth-cta">Add to Chrome — It's Free</a>
+        </div>
+        <div style="flex: 1;">
+            <img src="https://urlyth.com/img/urlyth-cover.webp" alt="Urlyth Interface" style="width:100%; border-radius: 12px; border: 1px solid var(--urlyth-border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+        </div>
+    </header>
+
+    <section id="features" class="urlyth-features">
+        <h2 style="text-align:center; font-size: 2rem;">Contextual Features</h2>
+        <div class="urlyth-grid">
+            <div class="urlyth-card">
+                <i class="fas fa-link"></i>
+                <h3>Anchored Data</h3>
+                <p>Notes are automatically filtered by the current URL or site you're browsing. Your thoughts stay where they belong.</p>
+            </div>
+            <div class="urlyth-card">
+                <i class="fas fa-microphone-lines"></i>
+                <h3>Lithe Voice Memos</h3>
+                <p>Record audio thoughts instantly. Perfect for capturing context without stopping to type.</p>
+            </div>
+            <div class="urlyth-card">
+                <i class="fas fa-expand"></i>
+                <h3>Site Snaps</h3>
+                <p>Visual bookmarks. Take a screenshot of the current tab and pin it alongside your text notes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="urlyth-pricing">
+        <h2 style="text-align:center; font-size: 2rem;">Editions</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Free Edition</h3>
+                <div class="price-val">$0<span>/forever</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Max 15 Text Notes</li>
+                    <li><i class="fas fa-check"></i> Max 10 Visual Snaps</li>
+                    <li><i class="fas fa-check"></i> Max 5 Voice Memos</li>
+                    <li><i class="fas fa-check"></i> 5MB Local Storage Limit</li>
+                </ul>
+            </div>
+            <div class="price-card pro">
+                <div class="pro-tag">Lifetime Deal</div>
+                <h3>Lifetime Edition</h3>
+                <div class="price-val">$9.99<span>/one-time</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Unlimited Text Notes</li>
+                    <li><i class="fas fa-check"></i> Unlimited Visual Snaps</li>
+                    <li><i class="fas fa-check"></i> Unlimited Voice Memos</li>
+                    <li><i class="fas fa-check"></i> Unlimited Storage Quota</li>
+                    <li><i class="fas fa-check"></i> Import/Export Backup Tools</li>
+                </ul>
+                <a href="https://chromewebstore.google.com/detail/urlyth/hohhodojpmnjolihlhklkeleiaelajne" class="urlyth-cta" style="width:100%; text-align:center;">Upgrade Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="help" class="help-section">
+        <h2 style="text-align:center;">Help & FAQ</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>What are the "Scopes"?</h4>
+                <p>Urlyth offers three views: "This Page" (specific URL), "Whole Site" (current domain), and "Everything" (all stored notes).</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I use Voice Memos?</h4>
+                <p>Click the Mic icon to record. Note that you must grant microphone permission via the "Mic Gate" before your first recording.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens if I hit the limit?</h4>
+                <p>The free version is limited by item count (15 notes, 10 snaps, 5 audio). You will be prompted to upgrade to Lifetime for unlimited access.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I backup my data?</h4>
+                <p>Use the Export/Import buttons in the header to save your database as a .json file. This ensures your data is portable and safe.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I clear my notes?</h4>
+                <p>You can delete individual notes or use the bulk action buttons (URL, Site, All) to clear entire segments of data.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is my data private?</h4>
+                <p>Yes. Urlyth is serverless. All data is stored locally in your browser and never leaves your machine.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4 style="margin-bottom:1rem;">URLYTH</h4>
+                <p style="font-size:0.8rem; color:var(--urlyth-muted);">Lithe, contextual browsing tools for professional workflows.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Product</h5>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://chromewebstore.google.com/detail/urlyth/hohhodojpmnjolihlhklkeleiaelajne">Download</a>
+            </div>
+            <div class="footer-col">
+                <h5>Legal</h5>
+                <a id="privacy-link">Privacy Policy</a>
+                <a id="terms-link">Terms of Service</a>
+                <a id="cookies-link">Cookie Policy</a>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <a href="https://weblaro.com">Weblaro.com</a>
+                <a href="https://weblaro.com/contact">Support</a>
+            </div>
+        </div>
+        <div class="copyright">
+            Urlyth copyrighted by <a href="https://weblaro.com" style="color:var(--urlyth-purple); text-decoration:none;">Weblaro.com</a> &copy; 2026. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
